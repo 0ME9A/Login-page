@@ -1,0 +1,466 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+button:focus {
+  outline: none;
+  border: none;
+}
+
+body {
+  width: 100%;
+}
+
+body .background-img {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+body .background-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+}
+
+body main {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body main nav {
+  width: 100%;
+  padding: 36px 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main nav a {
+  font-size: 36px;
+  color: #610101;
+  font-family: 'Righteous', cursive;
+}
+
+body main nav button {
+  background-color: #01026b;
+  padding: 0 32px;
+  height: 32px;
+  text-transform: capitalize;
+  border: none;
+  font-size: 16px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+body main nav button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background-color: #01026b;
+}
+
+body main nav button:hover::after {
+  left: 110%;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body main nav button::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -150%;
+  background-color: white;
+}
+
+body main nav button:hover::before {
+  left: 110%;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body main .form-area {
+  width: 350px;
+  height: 400px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+body main .form-area .form1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+}
+
+body main .form-area .form1 form {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main .form-area .form1 form input {
+  width: 80%;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  border-bottom: 2px solid #01026b;
+  margin: 8px 0;
+  color: #01026b;
+}
+
+body main .form-area .form1 form input:focus {
+  outline: none;
+}
+
+body main .form-area .form1 form input::-webkit-input-placeholder {
+  color: #01026b;
+}
+
+body main .form-area .form1 form input:-ms-input-placeholder {
+  color: #01026b;
+}
+
+body main .form-area .form1 form input::-ms-input-placeholder {
+  color: #01026b;
+}
+
+body main .form-area .form1 form input::placeholder {
+  color: #01026b;
+}
+
+body main .form-area .form1 form .gender {
+  margin-top: 8px;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 2px solid #01026b;
+}
+
+body main .form-area .form1 form .gender .male, body main .form-area .form1 form .gender .female {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  padding: 4px 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .form-area .form1 form .gender .male input, body main .form-area .form1 form .gender .female input {
+  width: auto;
+  position: relative;
+}
+
+body main .form-area .form1 form .gender .male input::after, body main .form-area .form1 form .gender .female input::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #01026b;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+body main .form-area .form1 form .gender .male input:checked::after, body main .form-area .form1 form .gender .female input:checked::after {
+  background-color: #01026b;
+}
+
+body main .form-area .form1 form .gender .male label, body main .form-area .form1 form .gender .female label {
+  padding: 0 8px;
+  font-size: 16px;
+  color: #01026b;
+}
+
+body main .form-area .form1 form button {
+  margin: 32px 0;
+  padding: 8px 48px;
+  border: none;
+  font-size: 16px;
+  border-radius: 20px;
+  color: white;
+  text-transform: capitalize;
+  background-color: #01026b;
+  border: 2px solid #01026b;
+}
+
+body main .form-area .form1 form button:hover {
+  border-color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body main .form-area .form1 form button:focus {
+  border-color: white;
+}
+
+body main .form-area .form2 {
+  display: block;
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  overflow: hidden;
+}
+
+body main .form-area .form2 form input {
+  color: #610101;
+  border-color: #610101;
+}
+
+body main .form-area .form2 form input::-webkit-input-placeholder {
+  color: #610101;
+}
+
+body main .form-area .form2 form input:-ms-input-placeholder {
+  color: #610101;
+}
+
+body main .form-area .form2 form input::-ms-input-placeholder {
+  color: #610101;
+}
+
+body main .form-area .form2 form input::placeholder {
+  color: #610101;
+}
+
+body main .form-area .form2 form button {
+  border-color: #610101;
+  background-color: #610101;
+}
+
+body main .form-area .form2 form button:hover body main .form-area .form2 form button:focus {
+  border-color: #610101;
+}
+
+body main .form-area .form2 form a {
+  position: relative;
+  width: 80%;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: right;
+  color: #610101;
+}
+
+body main .form-area .form2 form a:hover {
+  color: #610101;
+  text-decoration: underline;
+}
+
+body main .continue-with {
+  margin-bottom: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .continue-with a {
+  background-color: white;
+  margin: 0 16px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: capitalize;
+}
+
+body main .continue-with a span {
+  width: 35px;
+  height: 35px;
+  background-color: #01026b;
+  text-align: center;
+  line-height: 35px;
+  color: white;
+  font-family: 'Righteous', cursive;
+}
+
+body main .continue-with a p {
+  height: 100%;
+  line-height: 35px;
+  padding: 0 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+body main .continue-with a p::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  background-color: #01026b;
+}
+
+body main .continue-with a p:hover::after {
+  left: 110%;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body main .continue-with a p::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -150%;
+  background-color: white;
+}
+
+body main .continue-with a p:hover::before {
+  left: 110%;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body main .continue-with a .google:nth-child(1) {
+  background-color: #610101;
+}
+
+body main .continue-with a .google:nth-child(2) {
+  color: #610101;
+}
+
+body main .continue-with a .google:nth-child(2)::after {
+  background-color: #610101;
+}
+
+body main .continue-with a .google:nth-child(2)::before {
+  background-color: white;
+}
+
+body main .form-toggler {
+  width: 100%;
+  height: 75px;
+}
+
+body main .form-toggler button {
+  display: none;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #01026b;
+  border: none;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+body main .form-toggler button:hover {
+  background-color: #610101;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body main .form-toggler button:focus {
+  background-color: #610101;
+}
+
+@media only screen and (max-width: 600px) {
+  body main nav {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  body main nav button {
+    display: none;
+  }
+  body main .form-area .form1 {
+    width: 100%;
+  }
+  body main .form-area .form1 form button {
+    width: 50%;
+  }
+  body main .continue-with {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body main .continue-with a {
+    height: 50px;
+    width: 80%;
+    margin: 8px 0;
+  }
+  body main .continue-with a span {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+  body main .continue-with a p {
+    width: 100%;
+    line-height: 50px;
+  }
+  body main .form-toggler button {
+    display: block;
+  }
+}
+/*# sourceMappingURL=style.css.map */

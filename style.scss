@@ -1,0 +1,361 @@
+$colorA : rgb(1, 2, 107);
+$colorB : rgb(97, 1, 1);
+$colorC : rgba(255,255,255, 1);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+button:focus{
+    outline: none;
+    border: none;
+}
+body{
+    width: 100%;
+    .background-img{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(3px);
+        }
+    }
+    main{
+        width: 100%;
+        min-height: 100vh;
+        // background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        nav{
+            width: 100%;
+            // height: 80px;
+            padding: 36px 15%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // background-color: $colorC;
+            a{
+                font-size: 36px;
+                color: $colorB;
+                font-family: 'Righteous', cursive;
+            }
+            button{
+                background-color: $colorA;
+                padding: 0 32px;
+                height: 32px;
+                text-transform: capitalize;
+                border: none;
+                font-size: 16px;
+                color: $colorC;
+                position: relative;
+                overflow: hidden;
+                &::after{
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    background-color:$colorA ;
+                }
+                &:hover::after{
+                    left: 110%;
+                    transition: .3s;
+                }
+                &::before{
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: -150%;
+                    background-color: rgb(255, 255, 255) ;
+                }
+                &:hover::before{
+                    left: 110%;
+                    transition: .5s;
+                }
+            }
+        }
+        .form-area{
+            width: 350px;
+            height: 400px;
+            left: 50%;
+            transform: translate(-50% , 0);
+            // overflow: hidden;
+            position: relative;
+          
+            .form1{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0%;
+                form{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    input{
+                        width: 80%;
+                        padding: 8px;
+                        border: none;
+                        background-color: transparent;
+                        font-size: 16px;
+                        border-bottom: 2px solid $colorA;
+                        margin: 8px 0;
+                        color: $colorA;
+                        &:focus{
+                            outline: none;
+                        }
+                        &::placeholder{
+                            color: $colorA;
+                        }
+                    }
+                    .gender{
+                        margin-top: 8px;
+                        width: 80%;
+                        display: flex;
+                        border-bottom: 2px solid $colorA;
+                        .male ,.female{
+                            width: 100%;
+                            display: flex;
+                            justify-content: start;
+                            padding: 4px 8px;
+                            align-items: center;
+                            input{
+                                width: auto;
+                                position: relative;
+                                &::after{
+                                    content: '';
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: 50%;
+                                    box-sizing: border-box;
+                                    border: 2px solid $colorA;
+                                    background-color: $colorC;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50% , -50%);
+
+                                }
+                                &:checked::after{
+                                    background-color: $colorA;
+                                    // border: 2px solid $colorA;
+
+                                }
+                            }
+                            label{
+                                padding: 0 8px;
+                                font-size: 16px;
+                                color: $colorA;
+                            }
+                        }
+                    }
+                    button{
+                        margin: 32px 0;
+                        padding: 8px 48px;
+                        border: none;
+                        font-size: 16px;
+                        border-radius: 20px;
+                        color: $colorC;
+                        text-transform: capitalize;
+                        background-color: $colorA;
+                        border: 2px solid $colorA;
+                        &:hover{
+                            border-color: $colorC;
+                            transition: .3s;
+                        }
+                        &:focus{
+                            border-color: $colorC;
+                        }
+                    }
+                }
+            }
+            overflow: hidden;
+            .form2{
+                display: block;
+                transform-origin: bottom center;
+                overflow: hidden;
+                form{
+                    input{
+                        color: rgb(97, 1, 1);
+                        border-color: rgb(97, 1, 1);
+                        &::placeholder{
+                            color: rgb(97, 1, 1);
+                        }
+                    }
+                    button{
+                        border-color: rgb(97, 1, 1);
+                        background-color: rgb(97, 1, 1);
+                        &:hover &:focus{
+                            border-color: rgb(97, 1, 1);
+                        }
+                    }
+                    a{
+                        position: relative;
+                        width: 80%;
+                        padding: 8px 16px;
+                        font-size: 14px;
+                        text-align: right;
+                        color: rgb(97, 1, 1);
+                        &:hover{
+                            color: $colorB;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+        .continue-with{
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a{
+                background-color: $colorC;
+                margin: 0 16px;
+                height: 35px;
+                display: flex;
+                align-items: center;
+                text-transform: capitalize;
+                span{
+                    width: 35px;
+                    height: 35px;
+                    background-color: $colorA;
+                    text-align: center;
+                    line-height: 35px;
+                    color: $colorC;
+                    font-family: 'Righteous', cursive;
+                }
+                p{
+                    height: 100%;
+                    line-height: 35px;
+                    padding: 0 8px;
+                    overflow: hidden;
+                    position: relative;
+                    &::after{
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        background-color:$colorA ;
+                    }
+                    &:hover::after{
+                        left: 110%;
+                        transition: .3s;
+                    }
+                    &::before{
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: -150%;
+                        background-color: rgb(255, 255, 255) ;
+                    }
+                    &:hover::before{
+                        left: 110%;
+                        transition: .5s;
+                    }
+                    
+                }
+                .google:nth-child(1){
+                    background-color: $colorB;
+                }
+                .google:nth-child(2){
+                    color: $colorB;
+                    &::after{
+                        background-color: $colorB;
+                    }
+                    &::before{
+                        background-color: rgb(255, 255, 255);
+                    }
+                }
+            }
+        }
+        .form-toggler{
+            width: 100%;
+            height: 75px;
+            button{
+                display: none;
+                width: 100%;
+                height: 100%;
+                color: $colorC;
+                background-color: $colorA;
+                border: none;
+                font-size: 24px;
+                text-transform: capitalize;
+                &:hover{
+                    background-color: $colorB;
+                    transition: .3s;
+                }
+                &:focus{
+                    background-color: $colorB;
+                }
+                
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        main{
+            nav{
+                justify-content: center;
+                button{
+                    display: none;
+                }
+            }
+            .form-area{
+                .form1{
+                    width: 100%;
+                    form{
+                        button{
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+            .continue-with{
+                flex-direction: column;
+                a{
+                    height: 50px;
+                    width: 80%;
+                    margin: 8px 0;
+                    span{
+                        width: 50px;
+                        height: 50px;
+                        line-height: 50px;
+                    }
+                    p{
+                        width: 100%;
+                        line-height: 50px;
+                    }
+                }
+            }
+            .form-toggler{
+                button{
+                    display: block;
+                }
+            }
+        }
+    }
+  }
