@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- background img  -->
+    <div class="background-img">
+        <img src="https://images.unsplash.com/photo-1481026469463-66327c86e544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1048&q=80" alt="background-img">
+    </div>
+    <!-- this is main container -->
+    <main>
+        <!-- navbar for website and form toggler -->
+        <nav>
+            <a href="#">Omega</a>
+            <button type="submit" id="toggler1">sign in</button>
+        </nav>
+        <!-- form area for new user username email password confirm password gender -->
+        <div class="form-area">
+            <div class="form1 formA">
+                <form action="main.php" autocomplete="off" method="POST">
+                    <div class="input">
+                        <span class="icon"><i class="far fa-user"></i></span>
+                        <input type="text" placeholder="username" name="username" autofocus id="username" value="">
+                        <span class="check"><i class="fas fa-check" id="c1"></i><i class="fas fa-times" id="w1"></i></span>
+                    </div>
+                    <div class="input">
+                        <span class="icon"><i class="far fa-envelope"></i></span>
+                        <input type="email" name="email" id="email" placeholder="email" value="">
+                        <span class="check"><i class="fas fa-check" id="c2"></i><i class="fas fa-times" id="w2"></i></span>
+                    </div>
+                    <div class="input">
+                        <span class="icon"><i class="fas fa-unlock"></i></span>
+                        <input type="password" name="password" id="password" placeholder="password" value="">
+                        <span class="check"><i class="fas fa-check" id="c3"></i><i class="fas fa-times" id="w3"></i></span>
+                    </div>
+                    <div class="input">
+                        <span class="icon"><i class="fas fa-lock"></i></span>
+                        <input type="password" name="confirm-password" id="confirm-password" placeholder="confirm-password" value="">
+                        <span class="check"><i class="fas fa-check" id="c4"></i><i class="fas fa-times" id="w4"></i></span>
+                    </div>
+                    <div class="gender">
+                        <div class="male">
+                            <span class="icon"><i class="fas fa-male"></i></span>
+                            <input type="radio" name="gender" id="male" value="male">
+                            <label for="male">male</label>
+                        </div>
+                        <div class="female">
+                            <span class="icon"><i class="fas fa-female"></i></span>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label for="female">female</label>
+                        </div>
+                    </div>
+                    <button type="submit" id="form1_btn">register</button>
+                </form>
+            </div>
+            <!-- form area for old user email and password -->
+            <div class="form1 form2">
+                <form action="main.php" method="POST">
+                    <div class="input">
+                        <span class="icon"><i class="far fa-envelope"></i></span>
+                        <input type="email" name="signin-email" id="signin-email" placeholder="Email" autofocus value="">
+                        <span class="check"><i class="fas fa-check" id="c5"></i><i class="fas fa-times" id="w5"></i></span>
+                    </div>
+                    <div class="input">
+                        <span class="icon"><i class="fas fa-lock"></i></span>
+                        <input type="password" name="signin-password" id="signin-password" placeholder="password" value="">
+                        <span class="check"><i class="fas fa-check" id="c6"></i><i class="fas fa-times" id="w6"></i></span>
+                    </div>
+                        <a href="#">forgot password</a>
+                    <button type="submit" id="signin-btn">sign in</button>
+                </form>
+            </div>
+        </div>
+        <!-- register with google or other third party account -->
+        <div class="continue-with">
+           <a href="#"><span class="google">G</span><p class="google">continue with google</p></a>
+           <a href="#"><span class="facebook">F</span><p class="facebook">continue with facebook</p></a>
+        </div>
+        <!-- form toggler for mobile device -->
+        <div class="form-toggler">
+            <button type="submit" id="toggler2">sign in</button>
+        </div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

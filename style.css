@@ -5,6 +5,30 @@
           box-sizing: border-box;
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
+  text-transform: capitalize;
+  border: none;
+}
+
+.icon, .check {
+  color: #01026b;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+}
+
+.check .fas {
+  display: block;
+  line-height: 35px;
+  display: none;
+}
+
+.check .fa-check {
+  color: #00c800;
+}
+
+.check .fa-times {
+  color: #c80000;
 }
 
 button:focus {
@@ -21,6 +45,8 @@ body .background-img {
   height: 100%;
   position: fixed;
   top: 0;
+  right: auto;
+  bottom: auto;
   left: 0;
   z-index: -1;
 }
@@ -51,6 +77,7 @@ body main {
 
 body main nav {
   width: 100%;
+  height: auto;
   padding: 36px 15%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,9 +99,8 @@ body main nav a {
 body main nav button {
   background-color: #01026b;
   padding: 0 32px;
+  width: auto;
   height: 32px;
-  text-transform: capitalize;
-  border: none;
   font-size: 16px;
   color: white;
   position: relative;
@@ -114,7 +140,7 @@ body main nav button:hover::before {
 }
 
 body main .form-area {
-  width: 350px;
+  width: 400px;
   height: 400px;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
@@ -148,35 +174,60 @@ body main .form-area .form1 form {
           justify-content: center;
 }
 
-body main .form-area .form1 form input {
+body main .form-area .form1 form .input {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 8px 0;
+}
+
+body main .form-area .form1 form .input .icon {
+  margin-right: -35px;
+}
+
+body main .form-area .form1 form .input .check {
+  margin-left: -35px;
+}
+
+body main .form-area .form1 form .input input {
   width: 80%;
-  padding: 8px;
+  padding: 8px 40px;
   border: none;
   background-color: transparent;
   font-size: 16px;
   border-bottom: 2px solid #01026b;
-  margin: 8px 0;
   color: #01026b;
 }
 
-body main .form-area .form1 form input:focus {
+body main .form-area .form1 form .input input:focus {
   outline: none;
 }
 
-body main .form-area .form1 form input::-webkit-input-placeholder {
+body main .form-area .form1 form .input input::-webkit-input-placeholder {
   color: #01026b;
+  text-transform: capitalize;
 }
 
-body main .form-area .form1 form input:-ms-input-placeholder {
+body main .form-area .form1 form .input input:-ms-input-placeholder {
   color: #01026b;
+  text-transform: capitalize;
 }
 
-body main .form-area .form1 form input::-ms-input-placeholder {
+body main .form-area .form1 form .input input::-ms-input-placeholder {
   color: #01026b;
+  text-transform: capitalize;
 }
 
-body main .form-area .form1 form input::placeholder {
+body main .form-area .form1 form .input input::placeholder {
   color: #01026b;
+  text-transform: capitalize;
 }
 
 body main .form-area .form1 form .gender {
@@ -196,7 +247,6 @@ body main .form-area .form1 form .gender .male, body main .form-area .form1 form
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
-  padding: 4px 8px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -231,6 +281,7 @@ body main .form-area .form1 form .gender .male label, body main .form-area .form
   padding: 0 8px;
   font-size: 16px;
   color: #01026b;
+  text-transform: capitalize;
 }
 
 body main .form-area .form1 form button {
@@ -262,24 +313,28 @@ body main .form-area .form2 {
   overflow: hidden;
 }
 
-body main .form-area .form2 form input {
+body main .form-area .form2 form .input .icon {
+  color: #610101;
+}
+
+body main .form-area .form2 form .input input {
   color: #610101;
   border-color: #610101;
 }
 
-body main .form-area .form2 form input::-webkit-input-placeholder {
+body main .form-area .form2 form .input input::-webkit-input-placeholder {
   color: #610101;
 }
 
-body main .form-area .form2 form input:-ms-input-placeholder {
+body main .form-area .form2 form .input input:-ms-input-placeholder {
   color: #610101;
 }
 
-body main .form-area .form2 form input::-ms-input-placeholder {
+body main .form-area .form2 form .input input::-ms-input-placeholder {
   color: #610101;
 }
 
-body main .form-area .form2 form input::placeholder {
+body main .form-area .form2 form .input input::placeholder {
   color: #610101;
 }
 
@@ -432,6 +487,9 @@ body main .form-toggler button:focus {
   }
   body main nav button {
     display: none;
+  }
+  body main .form-area {
+    width: 100%;
   }
   body main .form-area .form1 {
     width: 100%;

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to do a global search for the numbers 1 to 4 in a string.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<input type="radio" name="gen" id="male" value="male">male
+<input type="radio" name="gen" id="female" value="female">female
+
+
+
+<script>
+    var male = document.getElementById('male');
+    var female = document.getElementById('female');
+ 
+    male.onchange = function(){
+        console.log('male');
+    }
+    female.onchange = function(){
+        console.log('female');
+    }
+    
+</script>
+
+</body>
+</html>
