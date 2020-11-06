@@ -6,6 +6,10 @@ $fontsize : ("small":16px, "normal":18px, "larg":35px);
     width: $width;
     height: $height;
 }
+@mixin fullsize(){
+    width: 100%;
+    height: 100%;
+}
 @mixin postion($position, $top, $right, $bottom, $left) {
     position: $position;
     top: $top;
@@ -13,9 +17,31 @@ $fontsize : ("small":16px, "normal":18px, "larg":35px);
     bottom: $bottom;
     left: $left;
 }
-@mixin color($fontcolor, $background) {
+@mixin transform ($x, $y){
+    transform: translate($x, $y);
+}
+@mixin color($fontcolor, $background, $font) {
     color: $fontcolor;
     background-color: $background;
+    font-size: $font;
+}
+@mixin flix ($justify, $align, $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+@mixin mzpd($mx, $my, $px, $py) {
+    margin: $mx $my;
+    padding: $px $py;
+}
+@mixin mp($x, $xv, $y, $yv) {
+    $x : $xv;
+    $y : $yv;
+}
+@mixin border($color, $radius) {
+    border: 2px solid $color;
+    border-radius: $radius;
 }
 *{
     margin: 0;
@@ -33,17 +59,16 @@ $fontsize : ("small":16px, "normal":18px, "larg":35px);
     line-height: 35px;
 }
 .check{
-    // background-color: red;
     .fas{
         display: block;
         line-height: 35px;
         display: none;
     }
     .fa-check{
-        color: rgb(0, 200, 0);
+        color: #00c800;
     }
     .fa-times{
-        color: rgb(200, 0, 0);
+        color: #c80000;
     }
 }
 button:focus{
@@ -65,35 +90,25 @@ body{
     main{
         width: 100%;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        @include flix(space-between, stretch, column);
         nav{
             @include size(100%, auto );
             padding: 36px 15%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flix(space-between, center);
             a{
-                font-size: map-get($fontsize, "normal")*2;
-                color: $colorB;
+                @include color($colorB, transparent, map-get($fontsize, "normal")*2);
                 font-family: 'Righteous', cursive;
             }
             button{
-                background-color: $colorA;
                 padding: 0 32px;
+                @include color($colorC, $colorA, map-get($fontsize, "small"));
                 @include size(auto, map-get($fontsize, "small")*2);
-                font-size: map-get($fontsize, "small");
-                color: $colorC;
                 position: relative;
                 overflow: hidden;
                 &::after{
                     content: '';
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: -100%;
+                    @include fullsize();
+                    @include postion(absolute, 0, auto, auto, -100%);
                     background-color:$colorA ;
                 }
                 &:hover::after{
@@ -102,11 +117,8 @@ body{
                 }
                 &::before{
                     content: '';
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: -150%;
+                    @include fullsize();
+                    @include postion(absolute, 0, auto, auto, -150%);
                     background-color: rgb(255, 255, 255) ;
                 }
                 &:hover::before{
@@ -116,33 +128,19 @@ body{
             }
         }
         .form-area{
-            width: 400px;
-            height: 400px;
-            left: 50%;
-            transform: translate(-50% , 0);
-            // overflow: hidden;
-            position: relative;
-          
+            @include size(400px, 400px);
+            @include postion(relative, auto, auto, auto, 50%);
+            @include transform(-50%, 0);
             .form1{
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                left: 0%;
+                @include fullsize();
+                @include postion(absolute, 0, 0, 0, 0);
                 form{
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
+                    @include fullsize();
+                    @include flix(center, center, column);
                     .input{
                         width: 100%;
-                        // border: 1px solid;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        margin: 8px 0;
-
+                        @include flix(center, center, row);
+                        @include mzpd(8px, 0, 0, 0);
                         .icon{
                             margin-right: -35px;
                         }
@@ -151,12 +149,9 @@ body{
                         }
                         input{
                             width: 80%;
-                            padding: 8px 40px;
-                            border: none;
-                            background-color: transparent;
-                            font-size: 16px;
+                            @include mzpd(0, 0, 8px, 40px);
                             border-bottom: 2px solid $colorA;
-                            color: $colorA;
+                            @include color($colorA, transparent, map-get($fontsize, "small"));
                             &:focus{
                                 outline: none;
                             }
@@ -172,51 +167,35 @@ body{
                             display: flex;
                             border-bottom: 2px solid $colorA;
                             .male ,.female{
-                                width: 100%;
-                                display: flex;
-                                justify-content: start;
-                                align-items: center;
+                                @include size(100%, auto);
+                                @include flix(start, center, row);
                                 input{
                                     width: auto;
                                     position: relative;
                                     &::after{
                                         content: '';
-                                        width: 16px;
-                                        height: 16px;
+                                        @include size(16px, 16px);
                                         border-radius: 50%;
                                         box-sizing: border-box;
                                         border: 2px solid $colorA;
                                         background-color: $colorC;
-                                        position: absolute;
-                                        top: 50%;
-                                        left: 50%;
-                                        transform: translate(-50% , -50%);
-
+                                        @include postion(absolute, 50%, 0, 0, 50%);
+                                        @include transform(-50%, -50%);
                                     }
                                     &:checked::after{
                                         background-color: $colorA;
-                                        // border: 2px solid $colorA;
-
                                     }
                                 }
                                 label{
                                     padding: 0 8px;
-                                    font-size: 16px;
-                                    color: $colorA;
-                                    text-transform: capitalize;
+                                    @include color($colorA, transparent, map-get($fontsize, "small"));
                                 }
                             }
                         }
                         button{
-                            margin: 32px 0;
-                            padding: 8px 48px;
-                            border: none;
-                            font-size: 16px;
-                            border-radius: 20px;
-                            color: $colorC;
-                            text-transform: capitalize;
-                            background-color: $colorA;
-                            border: 2px solid $colorA;
+                            @include mzpd(32px, 0, 8px, 48px);
+                            @include color($colorC, $colorA, map-get($fontsize, "small"));
+                            @include border($colorA, 20px);
                             &:hover{
                                 border-color: $colorC;
                                 transition: .3s;
@@ -225,7 +204,6 @@ body{
                                 border-color: $colorC;
                             }
                         }
-                    
                 }    
             }
             overflow: hidden;
@@ -239,19 +217,19 @@ body{
                             color: $colorB;
                         }
                         input{
-                            color: rgb(97, 1, 1);
-                            border-color: rgb(97, 1, 1);
+                            color: $colorB;
+                            border-color: $colorB;
                             &::placeholder{
-                                color: rgb(97, 1, 1);
+                                color: $colorB;
                             }
                         }
                      
                     }
                     button{
-                        border-color: rgb(97, 1, 1);
-                        background-color: rgb(97, 1, 1);
+                        border-color: $colorB;
+                        background-color: $colorB;
                         &:hover &:focus{
-                            border-color: rgb(97, 1, 1);
+                            border-color: $colorB;
                         }
                     }
                         a{
@@ -260,7 +238,7 @@ body{
                             padding: 8px 16px;
                             font-size: 14px;
                             text-align: right;
-                            color: rgb(97, 1, 1);
+                            color: $colorB;
                             &:hover{
                                 color: $colorB;
                                 text-decoration: underline;
@@ -271,23 +249,17 @@ body{
         }
         .continue-with{
             margin-bottom: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flix(center, center, row);
             a{
                 background-color: $colorC;
                 margin: 0 16px;
                 height: 35px;
-                display: flex;
-                align-items: center;
-                text-transform: capitalize;
+                @include flix(flex-start, center, row);
                 span{
-                    width: 35px;
-                    height: 35px;
-                    background-color: $colorA;
+                    @include size(35px, 35px);
+                    @include color($colorC, $colorA);
                     text-align: center;
                     line-height: 35px;
-                    color: $colorC;
                     font-family: 'Righteous', cursive;
                 }
                 p{
@@ -298,11 +270,8 @@ body{
                     position: relative;
                     &::after{
                         content: '';
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        top: 0;
-                        left: -100%;
+                        @include fullsize();
+                        @include postion(absolute, 0, auto, auto, -100%);
                         background-color:$colorA ;
                     }
                     &:hover::after{
@@ -311,12 +280,9 @@ body{
                     }
                     &::before{
                         content: '';
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        top: 0;
-                        left: -150%;
-                        background-color: rgb(255, 255, 255) ;
+                        @include fullsize();
+                        @include postion(absolute, 0, auto, auto, -150%);
+                        background-color: #ffffff
                     }
                     &:hover::before{
                         left: 110%;
@@ -333,23 +299,17 @@ body{
                         background-color: $colorB;
                     }
                     &::before{
-                        background-color: rgb(255, 255, 255);
+                        background-color: #ffffff;
                     }
                 }
             }
         }
         .form-toggler{
-            width: 100%;
-            height: 75px;
+            @include size(100%, 75px);
             button{
                 display: none;
-                width: 100%;
-                height: 100%;
-                color: $colorC;
-                background-color: $colorA;
-                border: none;
-                font-size: 24px;
-                text-transform: capitalize;
+                @include fullsize();
+                @include color($colorC, $colorA, map-get($fontsize, "small")+8px);
                 &:hover{
                     background-color: $colorB;
                     transition: .3s;
@@ -357,11 +317,9 @@ body{
                 &:focus{
                     background-color: $colorB;
                 }
-                
             }
         }
     }
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -376,7 +334,6 @@ body{
             .form-area{
                 width: 100%;
                 .form1{
-                    // background-color: red;
                     width: 100%;
                     form{
                         button{
@@ -388,12 +345,10 @@ body{
             .continue-with{
                 flex-direction: column;
                 a{
-                    height: 50px;
-                    width: 80%;
+                    @include size(80%, 50px);
                     margin: 8px 0;
                     span{
-                        width: 50px;
-                        height: 50px;
+                        @include size(50px, 50px);
                         line-height: 50px;
                     }
                     p{
