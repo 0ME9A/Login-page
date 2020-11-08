@@ -50,6 +50,7 @@
                 // insert data in database if user is new
                 $add_sql = "INSERT INTO user_account_data(username, useremail, password, confirm_password, user_id, gender) VALUES('$username', '$email', '$password', '$confirm_password', '$userid', '$gender')";
                 $conn->exec($add_sql);
+                // create a table for every new user and user history will store here
                 $user_table = "CREATE TABLE $userid(
                     id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     userid VARCHAR(30) NOT NULL,
@@ -77,18 +78,21 @@
         $check_stmt->execute();
         $check_result = $check_stmt->fetch(PDO::FETCH_ASSOC);
         // check user exist or not if yes redirect to singn in page if not then create user account
+        // result if user giver wrong email id
         if ($check_result['useremail'] != $signin_email){
             echo "your account does'nt exist";
             sess();
             $_SESSION["nomail"] = 'sir your account does not exist.';
             header("Location:http://localhost/web4/thank.php");
         }
+        // result if user give wrong password
         elseif ($check_result['password'] != $signin_password){
             echo "your password are incorrect";
             sess();
             $_SESSION["wrong"] = 'sir your password are incorrect.';
             header("Location:http://localhost/web4/thank.php");
         }
+        // if user password and email correct then user will login 
         else{
             echo "you are now loged in";
             sess();
