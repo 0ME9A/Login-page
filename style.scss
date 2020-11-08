@@ -152,6 +152,7 @@ body{
                             @include mzpd(0, 0, 8px, 40px);
                             border-bottom: 2px solid $colorA;
                             @include color($colorA, transparent, map-get($fontsize, "small"));
+                            text-transform: none;
                             &:focus{
                                 outline: none;
                             }

@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+}
+
+body main {
+  width: 100%;
+  height: 100vh;
+  background-color: #610101;
+}
+
+body main img {
+  width: 50%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+}
+
+body main .content {
+  position: relative;
+  top: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0 10%;
+}
+
+body main .content h1 {
+  font-size: 4rem;
+  color: red;
+  font-family: 'Righteous', cursive;
+}
+
+body main .content h3 {
+  border-bottom: 2px solid white;
+  padding: .5rem 10%;
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+  letter-spacing: .1rem;
+  word-spacing: .3rem;
+  text-shadow: 0px 0px 50px white, 0px 0px 10px white, 0px 0px 10px white;
+  text-transform: uppercase;
+}
+
+body main .content p {
+  font-size: .8rem;
+  color: white;
+  margin-top: .5rem;
+  line-height: 1.2rem;
+  padding: 0 10%;
+}
+
+body main .content a {
+  margin-top: 4rem;
+  padding: 1rem 4rem;
+  text-decoration: none;
+  background-color: #01026b;
+  font-family: 'Righteous', cursive;
+  color: white;
+  font-size: 1rem;
+  -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.315);
+          box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.315);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #610101;
+}
+
+body main .content a::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: -100%;
+  background-color: #01026b;
+}
+
+body main .content a:hover::after {
+  left: 110%;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+body main .content a::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: -150%;
+  background-color: white;
+}
+
+body main .content a:hover::before {
+  left: 110%;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body main .content a:hover {
+  border-color: white;
+  -webkit-transition: .5s;
+  transition: .5s;
+  border-radius: 35px;
+  font-size: 1.1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  * {
+    font-size: 16px;
+  }
+}
+/*# sourceMappingURL=thanks.css.map */

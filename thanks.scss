@@ -1,0 +1,104 @@
+@import "variable";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+}
+body{
+    main{
+        @include size(100%, 100vh);
+        background-color: $colorB;
+        img{
+            @include size(50%, 100%);
+            @include position(fixed, 0, auto, auto, 0);
+            object-fit: cover;
+            overflow: hidden;
+            filter: blur(3px);
+        }
+        .content{
+            position: relative;
+            top: 5;
+            @include flix(center, center, column);
+            @include fullsize();
+            padding:0 10%;
+            h1{
+                font-size: 4rem;
+                color: red;
+                font-family: 'Righteous', cursive;
+            }
+            h3{
+                border-bottom: 2px solid $colorC;
+                padding: .5rem 10%;
+                width: 100%;
+                color: $colorC;
+                font-size: 1rem;
+                letter-spacing: .1rem;
+                word-spacing: .3rem;
+                text-shadow: 0px 0px 50px rgb(255, 255, 255),0px 0px 10px rgb(255, 255, 255),0px 0px 10px rgb(255, 255, 255);
+                text-transform: uppercase;
+            }
+            p{
+                font-size: .8rem;
+                color: $colorC;
+                margin-top: .5rem;
+                line-height: 1.2rem;
+                padding: 0 10%;
+            }
+            a{
+                margin-top: 4rem;
+                padding: 1rem 4rem;
+                text-decoration: none;
+                background-color: $colorA;
+                font-family: 'Righteous', cursive;
+                color: $colorC;
+                font-size: 1rem;
+                box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.315);
+                position: relative;
+                overflow: hidden;
+                border: 2px solid $colorB;
+                &::after{
+                    content: '';
+                    @include fullsize();
+                    @include postion(absolute, 0, auto, auto, -100%);
+                    background-color:$colorA ;
+                }
+                &:hover::after{
+                    left: 110%;
+                    transition: .3s;
+                }
+                &::before{
+                    content: '';
+                    @include fullsize();
+                    @include postion(absolute, 0, auto, auto, -150%);
+                    background-color: rgb(255, 255, 255) ;
+                }
+                &:hover::before{
+                    left: 110%;
+                    transition: .5s;
+                }
+                &:hover{
+                    border-color: $colorC;
+                    transition: .5s;
+                    border-radius: 35px;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 600px){
+    *{
+        font-size: 16px;
+    }
+    body{
+        main{
+            img{
+                width: 100% !important;
+            }
+        }
+    }
+}
