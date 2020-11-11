@@ -1,48 +1,4 @@
-$colorA : rgb(1, 2, 107);
-$colorB : rgb(97, 1, 1);
-$colorC : rgba(255,255,255, 1);
-$fontsize : ("small":16px, "normal":18px, "larg":35px);
-@mixin size($width, $height){
-    width: $width;
-    height: $height;
-}
-@mixin fullsize(){
-    width: 100%;
-    height: 100%;
-}
-@mixin postion($position, $top, $right, $bottom, $left) {
-    position: $position;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-}
-@mixin transform ($x, $y){
-    transform: translate($x, $y);
-}
-@mixin color($fontcolor, $background, $font) {
-    color: $fontcolor;
-    background-color: $background;
-    font-size: $font;
-}
-@mixin flix ($justify, $align, $direction) {
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
-    flex-direction: $direction;
-}
-@mixin mzpd($mx, $my, $px, $py) {
-    margin: $mx $my;
-    padding: $px $py;
-}
-@mixin mp($x, $xv, $y, $yv) {
-    $x : $xv;
-    $y : $yv;
-}
-@mixin border($color, $radius) {
-    border: 2px solid $color;
-    border-radius: $radius;
-}
+@import "variable";
 *{
     margin: 0;
     padding: 0;
@@ -52,6 +8,7 @@ $fontsize : ("small":16px, "normal":18px, "larg":35px);
     text-transform: capitalize;
     border: none;
 }
+
 .icon, .check{
     color: $colorA;
     @include size(map-get($fontsize, "larg"), map-get($fontsize, "larg"));

@@ -1,0 +1,171 @@
+@import "variable";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    border: none;
+    &:focus{
+        outline: none;
+        // border: none;
+    }
+    // background-color: red;
+}
+body{
+    @include size(100%, 100vh);
+    .img{
+        @include fullsize();
+        position: fixed;
+        left: 0;
+        top: 0;
+        .cover{
+            @include size(50%, 100vh);
+            background-color: rgba(97, 1, 1, 0.5);
+            filter: blur();
+            backdrop-filter: blur(4px);
+            position: absolute;
+        }
+        picture{
+            @include fullsize();
+            img, source{
+                @include fullsize();
+                object-fit: cover;
+            }
+        }
+    }
+
+    nav{
+        @include size(100%, 7rem);
+        @include flix(space-between, center, row);
+        padding: 0 10%;
+        position: absolute;
+        h1{
+            a{
+                font-weight: lighter;
+                font-size: 2.5rem;
+                font-family: 'Righteous', cursive;
+            }
+        }
+        i{
+            font-size: 2rem;
+        }
+    }
+    main{
+        @include fullsize();
+        @include flix(center, center, column);
+        position: relative;
+        z-index: 5;
+        h2{
+            padding: 2rem .5rem;
+            font-size: 2rem;
+            text-align: center;
+            font-family: 'Righteous', cursive;
+            font-weight: lighter;
+            span{
+                color: rgb(255, 238, 0);
+            }
+
+        }
+        #note{
+            padding: 0 1rem;
+            line-height: 15px;
+            font-size: .9rem;
+            margin-bottom: 1rem;
+            position: absolute;
+            bottom: 0;
+            text-transform: lowercase;
+        }
+        form{
+            @include flix(center, center, column);
+            position: relative;
+            .input_area{
+                display: flex;
+                flex-direction: column;
+                margin: .8rem 0;
+                label{
+                    background-color: $colorA;
+                    display: inline-block;
+                    width: fit-content;
+                    padding: .2rem .5rem;
+                    margin-bottom: -.5rem;
+                    margin-left: .8rem;
+                    z-index: 5;
+                    background-color: $colorC;
+                    color: $colorB;
+                    font-size: .8rem;
+                }
+                input{
+                    width: 350px;
+                    height: 40px;
+                    color: red;
+                    padding: 1.5rem 1rem;
+                    text-transform: none;
+                    background-color: $colorB;
+                    border: 2px solid white;
+                    border-radius: 5px;
+                    color: white;
+                }
+            }
+            #otp_send{
+                // background-color: red;
+                align-self: flex-end;
+                padding: .2rem 1rem;
+                cursor: pointer;
+                font-size: .9rem;
+                // color: ;
+                &:hover{
+                    text-decoration: underline;
+                    transition: .3s;
+                }
+            }
+            button{
+                position: relative;
+                overflow: hidden;
+                margin-top: 2rem;
+                padding: .5rem 4rem;
+                @include btn_hover();
+                color: $colorB;
+                border-radius: 1.5rem;
+            }
+        }
+    }
+
+}
+@media only screen and (max-width: 600px){
+    *{
+        font-size: 14px;
+    }
+    div#cover{
+        width: 80%;
+        background-color: rgba(0, 0, 107, 0.5);
+    }
+    #forget_btn{
+        color: $colorA;
+    }
+    #forget_btn{
+        font-size: 1.5rem;
+    }
+    form{
+        width: 100%;
+        padding: 0 10%;
+        .input_area{
+            width: 100%;
+            #confirm_otp, #confirm_password, #password, #forget_email{
+                color: $colorA;
+            }
+            #forget_stage01, #forget_stage02, #forget_stage03, #forget_stage04{
+                width: 100%;
+                background-color: $colorA;
+            }
+        }
+        button{
+            width: 50%;
+            padding: .5rem;
+        }
+    }
+
+}

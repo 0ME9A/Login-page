@@ -1,4 +1,5 @@
 <?php 
+    require 'php_connetion.php';
 // variable and value for new user
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -8,11 +9,6 @@
 // variable and value for old user
     $signin_email = $_POST['signin-email'];
     $signin_password = $_POST['signin-password'];
-// connection variable
-    $servername = "localhost";
-    $serveruser = "root";
-    $serverpassword = "";
-    $dbname = "web4";
 // create function for destory previus session and create a new one
     function sess(){
         session_start();
@@ -20,9 +16,6 @@
         session_destroy();
         session_start();
     }
-
-// connection created
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname",$serveruser,$serverpassword);
     // create user account
     if (isset($username)){
         try {
@@ -80,14 +73,12 @@
         // check user exist or not if yes redirect to singn in page if not then create user account
         // result if user giver wrong email id
         if ($check_result['useremail'] != $signin_email){
-            echo "your account does'nt exist";
             sess();
             $_SESSION["nomail"] = 'sir your account does not exist.';
             header("Location:http://localhost/web4/thank.php");
         }
         // result if user give wrong password
         elseif ($check_result['password'] != $signin_password){
-            echo "your password are incorrect";
             sess();
             $_SESSION["wrong"] = 'sir your password are incorrect.';
             header("Location:http://localhost/web4/thank.php");

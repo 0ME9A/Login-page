@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>confirm account</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Righteous&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="thanks.css">
+    <link rel="stylesheet" href="css_file/thanks.css">
 </head>
 <body>
     <main>
@@ -30,7 +30,7 @@
             }
             // session will show if user give correct email and password
             elseif(isset($_SESSION['olduser'])){
-                echo '<h1>welcome back</h1><h3>welcome back mr. '.$_SESSION['olduser'].'</h3>';
+                echo '<h1>welcome back</h1><h3>welcome back '.$_SESSION['olduser'].'</h3>';
                 echo $para;
                 echo '<a href="login.html">home</a>';
             }

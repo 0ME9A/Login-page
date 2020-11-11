@@ -43,3 +43,25 @@ $fontsize : ("small":16px, "normal":18px, "larg":35px);
     border: 2px solid $color;
     border-radius: $radius;
 }
+@mixin btn_hover() {
+    &::after{
+        content: '';
+        @include fullsize();
+        @include postion(absolute, 0, auto, auto, -100%);
+        background-color:$colorA ;
+    }
+    &:hover::after{
+        left: 110%;
+        transition: .3s;
+    }
+    &::before{
+        content: '';
+        @include fullsize();
+        @include postion(absolute, 0, auto, auto, -150%);
+        background-color: #ffffff
+    }
+    &:hover::before{
+        left: 110%;
+        transition: .5s;
+    }
+}
